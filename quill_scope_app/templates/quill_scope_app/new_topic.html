@@ -1,0 +1,14 @@
+{% extends "quill_scope_app/base.html" %}
+
+
+{% block content %}
+
+<p>Add a new topic:</p>
+
+<form action="{% url 'quill_scope_app:new_topic' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Add topic</button>
+</form>
+
+{% endblock content %}

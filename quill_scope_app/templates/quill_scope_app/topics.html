@@ -1,0 +1,21 @@
+{% extends "quill_scope_app/base.html" %}
+
+
+{% block content %}
+
+<p>Topics</p>
+
+<ul>
+    {% for topic in topics %}
+    <li>
+        <a href="{% url 'quill_scope_app:topic' topic.id %}">{{topic}}</a>
+    </li>
+    {% empty %} <!-- if there are no items in the list -->
+    <li>No topics have been added.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'quill_scope_app:new_topic' %}">Add a new topic</a>
+
+
+{% endblock content %}
