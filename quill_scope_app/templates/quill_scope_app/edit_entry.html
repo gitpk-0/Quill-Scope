@@ -1,15 +1,22 @@
 {% extends "quill_scope_app/base.html" %}
 
+{% block page_header %}
+<h2 class="card-text"><a href="{% url 'quill_scope_app:topic' topic.id %}">{{ topic }}</a></h2>
+{% endblock page_header %}
+
 {% block content %}
 
-<p><a href="{% url 'quill_scope_app:topic' topic.id %}">{{ topic }}</a></p>
-
-<p>Edit entry:</p>
-
-<form action="{% url 'quill_scope_app:edit_entry' entry.id %}" method='post'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button name="submit">Save changes</button>
-</form>
+<div class="card mb-3">
+    <div class="card-body">
+        
+        <h4 class="card-title">Edit entry:</h4>
+        
+        <form action="{% url 'quill_scope_app:edit_entry' entry.id %}" method='post'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" name="submit">Save</button>
+        </form>
+    </div>
+</div>
 
 {% endblock content %}

@@ -6,9 +6,17 @@
     <p class="lead">Empower your knowledge. Select a topic, create personalized 
         entries, and expand your expertise.</p>
     <p>
+
+        {% if user.is_authenticated %}
+        <a class="btn btn-lg btn-success" 
+            href="{% url 'quill_scope_app:topics' %}" role="button">
+            See My Topics &raquo;</a>
+
+        {% else %}
         <a class="btn btn-lg btn-success" 
         href="{% url 'users:register' %}" role="button">
             Get Started &raquo;</a>
+        {% endif %}
     </p>
 </div>
 {% endblock page_header %}

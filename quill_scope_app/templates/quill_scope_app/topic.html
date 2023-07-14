@@ -1,28 +1,36 @@
 {% extends "quill_scope_app/base.html" %}
 
+{% block page_header %}
+<div class="d-flex justify-content-between align-items-center">
+    <h2>Topic: {{ topic }}</h2>
+    <p class="m-0 d-flex align-items-center">
+        <a href="{% url 'quill_scope_app:new_entry' topic.id %}" 
+        class="btn btn-xs btn-success">
+            Add a New Entry</a>
+    </p>
+</div>
+{% endblock page_header %}
+
 
 {% block content %}
 
-<p>Topic: {{topic}}</p>
-
-<p>Entries:</p>
-
-<p>
-    <a href="{% url 'quill_scope_app:new_entry' topic.id %}">Add a new entry</a>
-</p>
-
-<ul>
     {% for entry in entries %}
-    <li>
-        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{ entry.text|linebreaks }}</p>
-        <p>
-            <a href="{% url 'quill_scope_app:edit_entry' entry.id %}">Edit entry</a>
-        </p>
-    </li>
+    <div class="card mb-3">
+        <h4 class="card-header">
+            {{ entry.date_added|date:'D, M d, Y g:i A' }}
+            <small class="float-right">
+                <a href="{% url 'quill_scope_app:edit_entry' entry.id %}" 
+                class="btn btn-xs btn-info">
+                    Edit Entry</a>
+            </small>
+        </h4>
+        <div class="card-body">
+            {{ entry.text|linebreaks }}
+        </div>
+    </div>
+
     {% empty %} <!-- if there are no items in the list -->
     <li>No entries have been added for this topic.</li>
     {% endfor %}
-</ul>
 
 {% endblock content %}

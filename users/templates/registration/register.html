@@ -1,12 +1,23 @@
 {% extends "quill_scope_app/base.html" %}
 
+{% block page_header %}
+<h1 class="card-title">Registration</h1>
+{% endblock page_header %}
+
 {% block content %}
 
-<form method="post" action="{% url 'users:register' %}">
-{% csrf_token %}
-{{form.as_p}}
-<button name="submit">Register</button>
-<input type="hidden" name="next" value="{% url 'quill_scope_app:index'%}
-</form>
+<div class="container">
+    <div class="card mt-2">
+        <div class="card-body">
+            
+            <form method="post" action="{% url 'users:register' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary" name="submit">Register</button>
+                <input type="hidden" name="next" value="{% url 'quill_scope_app:index' %}">
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
