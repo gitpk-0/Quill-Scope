@@ -1,8 +1,14 @@
 {% extends "quill_scope_app/base.html" %}
 
-{% block content %}
-
-<p>Empower your knowledge. Select a topic, 
-    create personalized entries, and expand your expertise.</p>
-
-{% endblock content %}
+{% block page_header %}
+<div class="jumbotrom">
+    <h1 class="display-3">Quill Scope</h1>
+    <p class="lead">Empower your knowledge. Select a topic, create personalized 
+        entries, and expand your expertise.</p>
+    <p>
+        <a class="btn btn-lg btn-success" 
+        href="{% url 'users:register' %}" role="button">
+            Get Started &raquo;</a>
+    </p>
+</div>
+{% endblock page_header %}
