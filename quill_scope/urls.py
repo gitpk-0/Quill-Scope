@@ -25,6 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('', include('quill_scope_app.urls')),
-    path(r'^favicon\.ico$', favicon_view),
+    # path(r'^favicon\.ico$', favicon_view),
     
 ]
