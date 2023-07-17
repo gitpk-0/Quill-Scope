@@ -64,7 +64,7 @@ ROOT_URLCONF = 'quill_scope.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # tells django to look in the root dir for error page templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,8 +142,6 @@ LOGIN_URL = 'users:login'
 import os
 import django_heroku
 django_heroku.settings(locals())
-
-# DEBUG=False
 
 if os.environ.get('DEBUG') == 'True':
     DEBUG = True
