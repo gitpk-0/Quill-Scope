@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1juwiajzt7f4h-b2nwk56_2+hx#0l0w*e0&cku7v1wei-ti2zj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -142,6 +142,8 @@ LOGIN_URL = 'users:login'
 import os
 import django_heroku
 django_heroku.settings(locals())
+
+# DEBUG=False
 
 if os.environ.get('DEBUG') == 'True':
     DEBUG = True
